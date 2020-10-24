@@ -15,3 +15,15 @@ code {
 #root {
   height: 100%;
 }
+
+@font-face {
+  font-family: "JuliusSansOne";
+  src: local("JuliusSansOne"),
+    url(./fonts/JuliusSansOne-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "ArchivoNarrow-Bold";
+  src: local("ArchivoNarrow-Bold"),
+    url(./fonts/ArchivoNarrow-SemiBold.ttf) format("truetype");
+}

@@ -1,7 +1,10 @@
 import React from "react";
-import { Input, Form, Modal, DatePicker, TimePicker, Button } from "antd";
+import { Input, Form, Modal, DatePicker, TimePicker } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import moment from "moment";
+import StyledButton from "../Button";
+
+import { Title, Label } from "../Typography";
 
 const SetupForm = ({ visible, setFormData }) => {
   const [form] = useForm();
@@ -20,7 +23,7 @@ const SetupForm = ({ visible, setFormData }) => {
       visible={visible}
       closable={false}
       onOk={form.submit}
-      title="Tell me about your pub crawl"
+      title={<Title>Tell me about your pub crawl</Title>}
       width={720}
       footer={null}
     >
@@ -33,24 +36,32 @@ const SetupForm = ({ visible, setFormData }) => {
       >
         <Form.Item
           name="title"
-          label="Give your pubcrawl catchy title"
+          label={<Label>Give your pubcrawl catchy title</Label>}
           required
         >
           <Input placeholder="Guinness & gastro" size="large" />
         </Form.Item>
 
-        <Form.Item name="date" label="What day do we book off work?" required>
+        <Form.Item
+          name="date"
+          label={<Label>What day do we book off work?</Label>}
+          required
+        >
           <DatePicker size="large" />
         </Form.Item>
 
-        <Form.Item name="time" label="When do the festivities begin?" required>
+        <Form.Item
+          name="time"
+          label={<Label>When do the festivities begin?</Label>}
+          required
+        >
           <TimePicker format="h:mm" size="large" />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 20 }}>
-          <Button type="primary" htmlType="submit">
+        <Form.Item wrapperCol={{ offset: 19 }}>
+          <StyledButton type="primary" htmlType="submit">
             Let's gooo
-          </Button>
+          </StyledButton>
         </Form.Item>
       </Form>
     </Modal>

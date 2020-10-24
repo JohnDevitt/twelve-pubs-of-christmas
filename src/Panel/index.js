@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import { List, Button } from "antd";
 import PlacesAutocomplete from "react-places-autocomplete";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
-import { CloseOutlined } from "@ant-design/icons";
 import { Route } from "react-router-dom";
 import moment from "moment";
 
 import {
   Container,
-  PubCrawlTitle,
-  PubCrawlTime,
   PubCrawlInfo,
   PubListItem,
   AutoCompleteContainer,
@@ -19,8 +16,12 @@ import {
   PubInfo,
   PubTitle,
   PubAddress,
-  PubListTitle,
+  StyledCloseOutlined,
 } from "./styles";
+
+import StyledButton from "../Button";
+
+import { Headline, HeadlineSubtitle, Title } from "../Typography";
 
 const Panel = ({
   formData,
@@ -41,16 +42,14 @@ const Panel = ({
     <Container>
       <div>
         <PubCrawlInfo>
-          <PubCrawlTitle level={1}>
-            {formData ? formData.title : ""}
-          </PubCrawlTitle>
-          <PubCrawlTime level={2}>
+          <Headline level={1}>{formData ? formData.title : ""}</Headline>
+          <HeadlineSubtitle level={2}>
             {formData
               ? `${moment(formData.crawlTimeAndDate).format(
                   "ddd. DD MMM, HH:mm"
                 )}`
               : ""}
-          </PubCrawlTime>
+          </HeadlineSubtitle>
         </PubCrawlInfo>
         <Route exact path="/">
           <AutoCompleteContainer>
@@ -101,7 +100,9 @@ const Panel = ({
         </Route>
         {places.length > 0 && (
           <PubInfo>
-            <PubListTitle>The Pubs</PubListTitle>
+            <div>
+              <Title>The Route</Title>
+            </div>
             <List
               size="large"
               dataSource={places}
@@ -111,7 +112,7 @@ const Panel = ({
                   <PubListItem
                     key={`${place.coordinates.lat}-${place.coordinates.lng}`}
                   >
-                    <PubCrawlTitle>{index + 1}</PubCrawlTitle>
+                    <Headline>{index + 1}</Headline>
                     <PubInfo>
                       <PubTitle>{placeName}</PubTitle>
                       <PubAddress>{placeAddress.join(", ")}</PubAddress>
@@ -119,7 +120,7 @@ const Panel = ({
                     <Route exact path="/">
                       <Button
                         type="link"
-                        icon={<CloseOutlined />}
+                        icon={<StyledCloseOutlined />}
                         onClick={() => removePlaceFromList(index)}
                       />
                     </Route>
@@ -130,16 +131,29 @@ const Panel = ({
           </PubInfo>
         )}
       </div>
-      <Route exact path="/">
-        <Button type="primary" size="large" onClick={generateLink}>
-          Get Link
-        </Button>
-      </Route>
-      <Route exact path="/:id">
-        <Button type="primary" size="large" onClick={generateLink} href="/">
-          New pub crawl
-        </Button>
-      </Route>
+      <div style={{ padding: 16, width: "100%" }}>
+        <Route exact path="/">
+          <StyledButton
+            type="primary"
+            size="large"
+            onClick={generateLink}
+            style={{ width: "100%" }}
+          >
+            Get Link
+          </StyledButton>
+        </Route>
+        <Route exact path="/:id">
+          <StyledButton
+            type="primary"
+            size="large"
+            onClick={generateLink}
+            href="/"
+            style={{ width: "100%" }}
+          >
+            New pub crawl
+          </StyledButton>
+        </Route>
+      </div>
     </Container>
   );
 };

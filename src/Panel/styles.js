@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Typography, List, Input } from "antd";
+import { Typography, List, Input, Button } from "antd";
+import { CloseOutlined } from "@ant-design/icons";
 
 export const Container = styled.div`
-  padding: 16px;
   height: 100%;
   background: #fafafa;
   display: flex;
@@ -11,44 +11,35 @@ export const Container = styled.div`
 `;
 
 export const PubCrawlInfo = styled.div`
-  border-bottom: 1px solid #fafafa;
+  padding: 16px;
+  background-color: #2b4636;
+  opacity: 0.75;
+  box-shadow: 0 4px 2px 0 gray;
+  text-align: center;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const AutoCompleteContainer = styled.div`
-  margin: 16px 0;
-`;
-
-export const PubCrawlTitle = styled(Typography.Title)`
-  font-size: 28px !important;
-  font-weight: 500 !important;
-  color: #262626 !important;
-  margin: 0 32px 0 0 !important;
-`;
-
-export const PubCrawlTime = styled(Typography.Title)`
-  font-size: 16px !important;
-  color: #8c8c8c !important;
-  margin: 4px 0 32px 0 !important;
+  margin: 16px;
 `;
 
 export const AutoCompleteSearchInput = styled(Input)`
   padding: 16px;
   background: white;
-  margin: 4px 0 32px 0 !important;
 `;
 
 export const AutoCompleteList = styled(List)`
   position: absolute;
   z-index: 1;
+  width: 100%;
+  padding-right: 32px;
 `;
 
 export const AutoCompleteItem = styled(List.Item)`
   width: 100%;
-`;
-
-export const PubListTitle = styled(Typography.Title)`
-  font-size: 20px !important;
-  color: #262626 !important;
+  padding-left: 4px;
 `;
 
 export const PubListItem = styled(List.Item)`
@@ -58,8 +49,8 @@ export const PubListItem = styled(List.Item)`
   background: #ffffff;
   border: 1px solid #fafafa;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 2px 4px rgba(0, 0, 0, 0.06);
-  border-radius: 8px;
-  margin: 8px 0px;
+  border-radius: 4px;
+  margin: 4px 0px;
   text-align: flex-start;
 `;
 
@@ -68,19 +59,43 @@ export const PubInfo = styled.div`
   text-align: left;
   display: flex;
   flex-direction: column;
+  padding: 0 16px;
 `;
 
 export const PubTitle = styled(Typography.Text)`
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
+  font-family: JuliusSansOne;
+  font-size: 24px !important;
+  color: #2b4636 !important;
+  margin: 0 32px 0 0 !important;
+  opacity: 0.75;
 `;
 
 export const PubAddress = styled(Typography.Text)`
+  font-family: ArchivoNarrow-Bold;
   font-size: 12px;
   line-height: 24px;
-  letter-spacing: -0.01em;
+  color: #2b4636 !important;
+  letter-spacing: 0.05em;
   flex-grow: 2;
+  opacity: 0.75;
   text-align: left;
-  color: #8c8c8c !important;
+  text-transform: uppercase;
+`;
+
+export const StyledButton = styled(Button)`
+  font-family: ArchivoNarrow-Bold;
+  font-size: 12px;
+  line-height: 24px;
+  background-color: #2b4636 !important;
+  letter-spacing: 0.05em;
+  opacity: 0.75;
+  text-transform: uppercase;
+  color: white;
+  margin: 16px;
+  border: none;
+`;
+
+export const StyledCloseOutlined = styled(CloseOutlined)`
+  color: #2b4636 !important;
+  opacity: 0.75;
 `;

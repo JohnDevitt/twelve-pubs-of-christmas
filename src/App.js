@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SnowStorm from "react-snowstorm";
 import { useHistory } from "react-router-dom";
 import "antd/dist/antd.css";
+import "./overrides.less";
 import SetupForm from "./SetupForm";
 import { Layout, notification } from "antd";
 import Panel from "./Panel";
@@ -59,7 +60,7 @@ const App = () => {
             generateLink={generateLink}
           />
         </Layout.Sider>
-        <Layout.Content>
+        <Layout.Content width="70%">
           <SnowStorm flakesMax={264} />
           <Map places={places} />
         </Layout.Content>
