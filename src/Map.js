@@ -4,6 +4,11 @@ import "antd/dist/antd.css";
 
 const MapContainer = ({ places }) => (
   <Map
+    containerStyle={{
+      position: "relative",
+      width: "100%",
+      height: "100%",
+    }}
     google={window.google}
     initialCenter={{
       lat: 53.35014,

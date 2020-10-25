@@ -7,7 +7,7 @@ export const Container = styled.div`
   background: #fafafa;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  overflow: auto;
 `;
 
 export const PubCrawlInfo = styled.div`
@@ -16,13 +16,27 @@ export const PubCrawlInfo = styled.div`
   opacity: 0.75;
   box-shadow: 0 4px 2px 0 gray;
   text-align: center;
-  margin-bottom: 48px;
   display: flex;
   flex-direction: column;
+  flex-grow: 0;
 `;
 
 export const AutoCompleteContainer = styled.div`
-  margin: 16px;
+  padding: 48px 16px 0;
+  flex-direction: column;
+  overflow: scroll;
+`;
+
+export const ButtonContainer = styled.div`
+  padding: 16px;
+`;
+
+export const PubListContainer = styled.div`
+  flex: 1;
+  padding: 48px 16px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const AutoCompleteSearchInput = styled(Input)`
@@ -45,7 +59,7 @@ export const AutoCompleteItem = styled(List.Item)`
 export const PubListItem = styled(List.Item)`
   display: flex;
   justify-content: space-between;
-  padding: 16px;
+  padding: 16px !important;
   background: #ffffff;
   border: 1px solid #fafafa;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 2px 4px rgba(0, 0, 0, 0.06);

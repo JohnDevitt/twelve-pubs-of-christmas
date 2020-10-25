@@ -51,7 +51,7 @@ const App = () => {
     <>
       <SetupForm visible={!formData} setFormData={setFormData} />
       <Layout style={{ height: "100%" }}>
-        <Layout.Sider width="30%">
+        <Layout.Sider width="33%">
           <Panel
             formData={formData}
             addPlaceToList={addPlaceToList}
@@ -60,7 +60,7 @@ const App = () => {
             generateLink={generateLink}
           />
         </Layout.Sider>
-        <Layout.Content width="70%">
+        <Layout.Content>
           <SnowStorm flakesMax={264} />
           <Map places={places} />
         </Layout.Content>

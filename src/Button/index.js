@@ -12,6 +12,10 @@ const StyledButton = styled(Button)`
   color: ${palette.light} !important;
   text-transform: uppercase;
   letter-spacing: 0.125em;
+  &:hover {
+    background-color: ${palette.darkGreen};
+    opacity: 1;
+  }
 `;
 
 export default StyledButton;
