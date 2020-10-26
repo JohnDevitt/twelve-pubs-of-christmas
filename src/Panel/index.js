@@ -113,7 +113,7 @@ const Panel = ({
                 <Headline>{index + 1}</Headline>
                 <PubInfo>
                   <PubTitle>{placeName}</PubTitle>
-                  <PubAddress>{placeAddress.join(", ")}</PubAddress> chr
+                  <PubAddress>{placeAddress.join(", ")}</PubAddress>
                 </PubInfo>
                 <Route exact path="/">
                   <Button
