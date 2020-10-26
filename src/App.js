@@ -4,15 +4,18 @@ import { useHistory } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./overrides.less";
 import SetupForm from "./SetupForm";
-import { Layout, notification } from "antd";
+import { Grid, Row, Col, notification } from "antd";
 import Panel from "./Panel";
 import Map from "./Map";
+
+const { useBreakpoint } = Grid;
 
 const App = () => {
   const [formData, setFormData] = useState(null);
   const [places, setPlaces] = useState([]);
   const [loading, setLoading] = useState(true);
   const history = useHistory();
+  const screens = useBreakpoint();
 
   useEffect(() => {
     if (history.location.pathname !== "/") {
@@ -47,11 +50,11 @@ const App = () => {
 
   if (loading) return null;
 
-  return (
+  return screens.md ? (
     <>
       <SetupForm visible={!formData} setFormData={setFormData} />
-      <Layout style={{ height: "100%" }}>
-        <Layout.Sider width="33%">
+      <Row style={{ height: "100%" }}>
+        <Col span={8}>
           <Panel
             formData={formData}
             addPlaceToList={addPlaceToList}
@@ -59,12 +62,31 @@ const App = () => {
             places={places}
             generateLink={generateLink}
           />
-        </Layout.Sider>
-        <Layout.Content>
-          <SnowStorm flakesMax={264} />
+        </Col>
+        <Col span={16}>
+          <SnowStorm flakesMax={1024} />
           <Map places={places} />
-        </Layout.Content>
-      </Layout>
+        </Col>
+      </Row>
+    </>
+  ) : (
+    <>
+      <SetupForm visible={!formData} setFormData={setFormData} />
+      <Row>
+        <Col span={24} style={{ padding: 8, height: 350 }}>
+          <SnowStorm flakesMax={1024} />
+          <Map places={places} />
+        </Col>
+        <Col span={24}>
+          <Panel
+            formData={formData}
+            addPlaceToList={addPlaceToList}
+            removePlaceFromList={removePlaceFromList}
+            places={places}
+            generateLink={generateLink}
+          />
+        </Col>
+      </Row>
     </>
   );
 };

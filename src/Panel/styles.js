@@ -69,9 +69,9 @@ export const PubListItem = styled(List.Item)`
 `;
 
 export const PubInfo = styled.div`
-  flex-grow: 2;
-  text-align: left;
+  text-align: start;
   display: flex;
+  flex: 1;
   flex-direction: column;
   padding: 0 16px;
 `;
